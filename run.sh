@@ -13,9 +13,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-whoami
-$whoami
-chmod -R 777 /data
+
+echo "executing run.sh"
 set -o pipefail
 
 POD_NAMESPACE=${POD_NAMESPACE:-default}
@@ -72,7 +71,7 @@ else
     exit 1
   fi
 fi
-
+echo "kroll: "${@}
 if [[ -n "${PROXY}" ]]; then
   echo "Starting in proxy mode"
   set -x
@@ -83,6 +82,7 @@ if [[ -n "${PROXY}" ]]; then
     ${JOIN_ENDPOINTS} \
     ${@}
 else
+  echo "Starting..."
   set -x
   exec rethinkdb \
     --server-name ${SERVER_NAME} \
