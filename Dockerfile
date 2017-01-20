@@ -13,5 +13,7 @@ RUN apt-get update && \
 ADD test.sh run.sh ready-probe.sh /usr/bin/
 
 #CMD ["/usr/bin/dumb-init"]
-CMD ["/bin/bash /usr/bin/test.sh"]
-CMD ["/bin/bash /usr/bin/run.sh"]
+#CMD ["/bin/bash /usr/bin/test.sh"]
+#CMD ["/bin/bash /usr/bin/run.sh"]
+
+ENTRYPOINT ["/usr/bin/dumb-init", "/usr/bin/run.sh"]
