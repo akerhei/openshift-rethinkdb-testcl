@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 echo "run.sh"
+chmod -R 755 /data
 set -o pipefail
 
 POD_NAMESPACE=${POD_NAMESPACE:-default}
