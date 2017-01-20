@@ -75,6 +75,7 @@ if [[ -n "${PROXY}" ]]; then
   echo "Starting in proxy mode"
   set -x
   exec rethinkdb \
+    --log-file /data/log_file \
     proxy \
     --canonical-address ${POD_IP} \
     --bind all \
@@ -83,6 +84,7 @@ if [[ -n "${PROXY}" ]]; then
 else
   set -x
   exec rethinkdb \
+    --log-file /data/log_file \
     --server-name ${SERVER_NAME} \
     --canonical-address ${POD_IP} \
     --bind all \
