@@ -11,5 +11,4 @@ RUN apt-get update && \
 ADD ./jq /usr/bin/
 ADD ./run.sh ./ready-probe.sh /
 
-CMD ["/usr/bin/dumb-init"]
-CMD ["/run.sh"]
+ENTRYPOINT ["/usr/bin/dumb-init", "/run.sh"]
